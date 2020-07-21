@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+<div class="container">
+    <h1>Welcome</h1>
+    <br>
+    <h2>Availability</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>On road</th>
+          <th>Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{onRoad}}</td>
+          <td>{{available}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h2>Most demanded</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>By Location</th>
+          <th>By Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{mostInDemandLoc}} </td>
+          <td>{{mostInDemandMod}} </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+{% endblock %}

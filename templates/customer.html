@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <table>
+      <thead>
+        <th>S No</th>
+        <th>Registration Number</th>
+        <th>Model</th>
+        <th>Brand</th>
+        <th>Location</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Book</th>
+      </thead>
+      <tbody>
+        {%if cars %}
+            {% for car in cars %}
+                <form action="{% url 'book'%}" method="POST">
+                    {%csrf_token%}
+                    <tr>
+                        <td>{{car.id}}
+                            <input type="hidden" name="carId" value="{{car.id}}">
+                        </td>
+                        <td>{{car.reg_no}}</td>
+                        <td>{{car.model}}</td>
+                        <td>{{car.brand}}</td>
+                        <td>{{car.location}}</td>
+                        <td><input type="date" name="from_date" value=""></td>
+                        <td><input type="date" name="to_date" value=""></td>
+                        <td><input type="submit" name="submit" value="submit"></td>
+                    </tr>
+                </form>
+            {% endfor %}
+        {%endif%}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
